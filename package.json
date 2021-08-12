@@ -6,19 +6,30 @@
   "engines": {
     "node": ">= 0.8"
   },
-  "main": "./index",
+  "main": "dist/main",
   "repository": "git://github.com/segmentio/inbound",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "dependencies": {
-    "underscore": "*",
     "async": "*",
-    "tldextract": "*"
+    "tldextract": "*",
+    "underscore": "*"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@webpack-cli/generators": "^2.2.0",
+    "babel-loader": "^8.2.2",
+    "mocha": "*",
+    "prettier": "^2.3.2",
     "should": "*",
-    "mocha": "*"
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2"
   },
   "publishConfig": {
     "registry": "https://registry.segment.io"
